@@ -99,6 +99,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
 });
+
+## Screenshots
+
+![App DatePicker](https://raw.githubusercontent.com/kz370/React-native-light-datePicker/main/DatePicker/images/Datepicker.PNG)
 ```
 
 
@@ -140,7 +144,5 @@ const styles = StyleSheet.create({
   },
 });
 
-## Screenshots
 
-![App DatePicker](https://raw.githubusercontent.com/kz370/React-native-light-datePicker/main/DatePicker/images/Datepicker.PNG)
 
