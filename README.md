@@ -142,5 +142,5 @@ const styles = StyleSheet.create({
 
 ## Screenshots
 
-![App DatePicker](https://raw.githubusercontent.com/kz370/date-picker/master/DatePicker/images/Datepicker.PNG?token=GHSAT0AAAAAABS2ZF5RI32RTLQGSGA2S55IYSIL26A)
+![App DatePicker](https://raw.githubusercontent.com/kz370/React-native-light-datePicker/main/DatePicker/images/Datepicker.PNG)
 
