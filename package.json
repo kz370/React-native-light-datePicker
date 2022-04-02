@@ -1,7 +1,7 @@
 {
-  "name": "light-datepicker-react-native",
+  "name": "@kz.dev370/datetime-picker-react-native",
   "version": "1.0.0",
-  "description": "a light and fast datetime picker for react native",
+  "description": "a light and fast date/time picker for react native",
   "main": "datepicker/DatePicker.js",
   "scripts": {
     "test": "startdatepicker"
