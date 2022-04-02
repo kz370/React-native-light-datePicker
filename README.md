@@ -60,9 +60,10 @@ step:
   The interval at which minutes can be selected
 ```
 
-
 ## Usage/Examples
+
 ### DatePicker
+
 ```javascript
 import DatePicker from './DatePicker';
 
@@ -79,11 +80,11 @@ export default function App() {
     setdate(value)
     setShowModal(false)
   }
-  
+
   return (
     <View style={styles.container}>
         {showModal && <DatePicker
-        date={date} 
+        date={date}
         mode="time"
         step={5}
         onCancel={() => setShowModal(false)}
@@ -100,9 +101,16 @@ const styles = StyleSheet.create({
   },
 });
 ```
+## Screenshots
+<table>
+   <tr>
+   <td><img src="https://raw.githubusercontent.com/kz370/React-native-light-datePicker/main/DatePicker/images/Datepicker.PNG" alt="React Native DateTime Picker Modal" height="300px" style="margin-left:10px" /></td>
+  </tr>
+</table>
 
 
 ### TimePicker
+
 ```javascript
 import DatePicker from './DatePicker';
 
@@ -119,12 +127,12 @@ export default function App() {
     setdate(value)
     setShowModal(false)
   }
-  
+
   return (
     <View style={styles.container}>
         {showModal && <DatePicker
         startDate={new Date("6/20/2020")}
-        date={date} 
+        date={date}
         mode="date"
         onCancel={() => setShowModal(false)}
         onConfirm={(e) => { confirm(e) }}/>}
@@ -139,8 +147,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
 });
-
-## Screenshots
-
-![App DatePicker](https://raw.githubusercontent.com/kz370/date-picker/master/DatePicker/images/Datepicker.PNG?token=GHSAT0AAAAAABS2ZF5RI32RTLQGSGA2S55IYSIL26A)
+```
+<table>
+   <tr>
+   <td><img src="https://raw.githubusercontent.com/kz370/React-native-light-datePicker/main/DatePicker/images/TimerPicker24hrs.PNG" alt="React Native DateTime Picker Modal" height="300px" style="margin-left:10px" /></td>
+   <td><img src="https://raw.githubusercontent.com/kz370/React-native-light-datePicker/main/DatePicker/images/TimerPicker12hrs.PNG" alt="React Native DateTime Picker Modal" height="300px" style="margin-left:10px" /></td>
+  </tr>
+</table>
 
