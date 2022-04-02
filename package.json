@@ -1,5 +1,5 @@
 {
-  "name": "datetime-picker-react-native",
+  "name": "@kz.dev/datetime-picker-react-native",
   "version": "1.0.0",
   "description": "a light and fast date/time picker for react native",
   "main": "datepicker/DatePicker.js",
@@ -12,7 +12,8 @@
   },
   "keywords": [
     "react-native",
-    "datepicker"
+    "datepicker",
+    "datetimepicker"
   ],
   "author": "kz.dev370",
   "license": "UNLICENSED",
