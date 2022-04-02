@@ -1,20 +1,17 @@
-
-## Crafty-app 
+## Crafty-app
 
 Made by crafty-app.com
 
-# Date picker 
+# Date picker
 
 A light date/time picker for react-native or expo
-
-
-
 
 ## Usage
 
 List of possible values:
 
 startDate:
+
 ```bash
   Defines the minimum date that can be selected
 ```
@@ -27,7 +24,7 @@ mode:
   "date" default
   "Time"
 ```
-    
+
 hrs12:
 
 ```bash
@@ -54,6 +51,7 @@ onConfirm:
 ```bash
   "onConfirm" returns date value when pressed required!
 ```
+
 step:
 
 ```bash
