@@ -22,7 +22,7 @@ mode:
   Defines the type of the picker
   List of possible values
   "date" default
-  "Time"
+  "time"
 ```
 
 isTransparent:
