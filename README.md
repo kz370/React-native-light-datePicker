@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
 ### TimePicker
 
 ```javascript
-import DatePicker from "./DatePicker";
+import DatePicker from '@kz.dev370/datetime-picker-react-native';
 
 export default function App() {
   const [date, setdate] = useState(new Date());
