@@ -4,7 +4,21 @@ Made by crafty-app.com
 
 # Date picker
 
-A light date/time picker for react-native or expo
+A light date/time picker for react-native
+
+## Installation 
+
+npm:
+
+```bash
+  npm i @khaledz370/datetimepicker-react-native    
+```
+
+yarn:
+
+```bash
+  yarn add @khaledz370/datetimepicker-react-native    
+```
 
 ## Usage
 
