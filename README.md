@@ -143,6 +143,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
 });
-
+![App DatePicker](https://raw.githubusercontent.com/kz370/React-native-light-datePicker/main/DatePicker/images/TimerPicker24hrs.PNG)
+![App DatePicker](https://raw.githubusercontent.com/kz370/React-native-light-datePicker/main/DatePicker/images/TimerPicker12hrs.PNG)
+```
 
 
