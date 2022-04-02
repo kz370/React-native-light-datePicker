@@ -1,20 +1,17 @@
-
-## Crafty-app 
+## Crafty-app
 
 Made by crafty-app.com
 
-# Date picker 
+# Date picker
 
 A light date/time picker for react-native or expo
-
-
-
 
 ## Usage
 
 List of possible values:
 
 startDate:
+
 ```bash
   Defines the minimum date that can be selected
 ```
@@ -27,7 +24,7 @@ mode:
   "date" default
   "Time"
 ```
-    
+
 hrs12:
 
 ```bash
@@ -54,15 +51,17 @@ onConfirm:
 ```bash
   "onConfirm" returns date value when pressed required!
 ```
+
 step:
 
 ```bash
   The interval at which minutes can be selected
 ```
 
-
 ## Usage/Examples
+
 ### DatePicker
+
 ```javascript
 import DatePicker from './DatePicker';
 
@@ -79,11 +78,11 @@ export default function App() {
     setdate(value)
     setShowModal(false)
   }
-  
+
   return (
     <View style={styles.container}>
         {showModal && <DatePicker
-        date={date} 
+        date={date}
         mode="time"
         step={5}
         onCancel={() => setShowModal(false)}
@@ -101,12 +100,15 @@ const styles = StyleSheet.create({
 });
 
 ## Screenshots
-
-![App DatePicker](https://raw.githubusercontent.com/kz370/React-native-light-datePicker/main/DatePicker/images/Datepicker.PNG)
+<table>
+   <tr>
+   <td><img src="https://raw.githubusercontent.com/kz370/React-native-light-datePicker/main/DatePicker/images/Datepicker.PNG" alt="React Native DateTime Picker Modal" height="400px" style="margin-left:10px" /></td>
+  </tr>
+</table>
 ```
 
-
 ### TimePicker
+
 ```javascript
 import DatePicker from './DatePicker';
 
@@ -123,12 +125,12 @@ export default function App() {
     setdate(value)
     setShowModal(false)
   }
-  
+
   return (
     <View style={styles.container}>
         {showModal && <DatePicker
         startDate={new Date("6/20/2020")}
-        date={date} 
+        date={date}
         mode="date"
         onCancel={() => setShowModal(false)}
         onConfirm={(e) => { confirm(e) }}/>}
@@ -143,8 +145,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
 });
-![App DatePicker](https://raw.githubusercontent.com/kz370/React-native-light-datePicker/main/DatePicker/images/TimerPicker24hrs.PNG)
-![App DatePicker](https://raw.githubusercontent.com/kz370/React-native-light-datePicker/main/DatePicker/images/TimerPicker12hrs.PNG)
+<table>
+   <tr>
+   <td><img src="https://raw.githubusercontent.com/kz370/React-native-light-datePicker/main/DatePicker/images/TimerPicker24hrs.PNG" alt="React Native DateTime Picker Modal" height="400px" style="margin-left:10px" /></td>
+   <td><img src="https://raw.githubusercontent.com/kz370/React-native-light-datePicker/main/DatePicker/images/TimerPicker12hrs.PNG" alt="React Native DateTime Picker Modal" height="400px" style="margin-left:10px" /></td>
+  </tr>
+</table>
 ```
-
-
