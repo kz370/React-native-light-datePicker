@@ -1,5 +1,5 @@
 {
-  "name": "@kz.dev370/datetimepicker-react-native",
+  "name": "@khaledz370/datetimepicker-react-native",
   "version": "1.0.0",
   "description": "a light and fast date/time picker for react native",
   "main": "datepicker/DatePicker.js",
