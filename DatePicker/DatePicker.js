@@ -76,7 +76,7 @@ export default DatePicker = (props) => {
         return (
             <Modal
                 animationType="fade"
-                transparent={props.isTransparent}
+                transparent={props.isTransparent?props.isTransparent:false}
                 backdropColor={"white"}
             >
                 <ScrollView style={{ flex: 1 }}>

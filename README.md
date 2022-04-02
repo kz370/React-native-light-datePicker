@@ -25,6 +25,15 @@ mode:
   "Time"
 ```
 
+isTransparent:
+
+```bash
+   Hide/show app background when picker shows up
+   List of possible values
+   true 
+   false default
+```
+
 hrs12:
 
 ```bash
@@ -63,93 +72,104 @@ step:
 ### DatePicker
 
 ```javascript
-import DatePicker from './DatePicker';
+import DatePicker from "./DatePicker";
 
 export default function App() {
-  const [date, setdate] = useState(new Date())
-  const [time, setTime] = useState(new Date())
-  const [showModal, setShowModal] = useState(false)
-  const [mode, setmode] = useState('date')
-  const show = (mode) => {
-    setShowModal(true)
-    setmode(mode)
-  }
-  const confirm = (value) => {
-    setdate(value)
-    setShowModal(false)
-  }
+  const [date, setdate] = useState(new Date());
+  const [time, setTime] = useState(new Date());
+  const [showModal, setShowModal] = useState(false);
+  const [mode, setmode] = useState("date");
+  const show = mode => {
+    setShowModal(true);
+    setmode(mode);
+  };
+  const confirm = value => {
+    setdate(value);
+    setShowModal(false);
+  };
 
   return (
     <View style={styles.container}>
-        {showModal && <DatePicker
-        date={date}
-        mode="time"
-        step={5}
-        onCancel={() => setShowModal(false)}
-        onConfirm={(e) => { confirm(e) }}/>}
+      {showModal && (
+        <DatePicker
+          date={date}
+          mode="time"
+          step={5}
+          onCancel={() => setShowModal(false)}
+          onConfirm={e => {
+            confirm(e);
+          }}
+        />
+      )}
     </View>
   );
 }
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'skyblue',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-  },
+    backgroundColor: "skyblue",
+    alignItems: "center",
+    justifyContent: "space-around"
+  }
 });
 ```
+
 ## Screenshots
+
 <table>
    <tr>
    <td><img src="https://raw.githubusercontent.com/kz370/React-native-light-datePicker/main/DatePicker/images/Datepicker.PNG" alt="React Native DateTime Picker Modal" height="300px" style="margin-left:10px" /></td>
   </tr>
 </table>
 
-
 ### TimePicker
 
 ```javascript
-import DatePicker from './DatePicker';
+import DatePicker from "./DatePicker";
 
 export default function App() {
-  const [date, setdate] = useState(new Date())
-  const [time, setTime] = useState(new Date())
-  const [showModal, setShowModal] = useState(false)
-  const [mode, setmode] = useState('date')
-  const show = (mode) => {
-    setShowModal(true)
-    setmode(mode)
-  }
-  const confirm = (value) => {
-    setdate(value)
-    setShowModal(false)
-  }
+  const [date, setdate] = useState(new Date());
+  const [time, setTime] = useState(new Date());
+  const [showModal, setShowModal] = useState(false);
+  const [mode, setmode] = useState("date");
+  const show = mode => {
+    setShowModal(true);
+    setmode(mode);
+  };
+  const confirm = value => {
+    setdate(value);
+    setShowModal(false);
+  };
 
   return (
     <View style={styles.container}>
-        {showModal && <DatePicker
-        startDate={new Date("6/20/2020")}
-        date={date}
-        mode="date"
-        onCancel={() => setShowModal(false)}
-        onConfirm={(e) => { confirm(e) }}/>}
+      {showModal && (
+        <DatePicker
+          startDate={new Date("6/20/2020")}
+          date={date}
+          mode="date"
+          onCancel={() => setShowModal(false)}
+          onConfirm={e => {
+            confirm(e);
+          }}
+        />
+      )}
     </View>
   );
 }
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'skyblue',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-  },
+    backgroundColor: "skyblue",
+    alignItems: "center",
+    justifyContent: "space-around"
+  }
 });
 ```
+
 <table>
    <tr>
    <td><img src="https://raw.githubusercontent.com/kz370/React-native-light-datePicker/main/DatePicker/images/TimerPicker24hrs.PNG" alt="React Native DateTime Picker Modal" height="300px" style="margin-left:10px" /></td>
    <td><img src="https://raw.githubusercontent.com/kz370/React-native-light-datePicker/main/DatePicker/images/TimerPicker12hrs.PNG" alt="React Native DateTime Picker Modal" height="300px" style="margin-left:10px" /></td>
   </tr>
 </table>
-
