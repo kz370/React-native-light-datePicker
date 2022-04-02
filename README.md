@@ -98,14 +98,14 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
 });
-
+```
 ## Screenshots
 <table>
    <tr>
    <td><img src="https://raw.githubusercontent.com/kz370/React-native-light-datePicker/main/DatePicker/images/Datepicker.PNG" alt="React Native DateTime Picker Modal" height="400px" style="margin-left:10px" /></td>
   </tr>
 </table>
-```
+
 
 ### TimePicker
 
@@ -145,10 +145,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
 });
+```
 <table>
    <tr>
    <td><img src="https://raw.githubusercontent.com/kz370/React-native-light-datePicker/main/DatePicker/images/TimerPicker24hrs.PNG" alt="React Native DateTime Picker Modal" height="400px" style="margin-left:10px" /></td>
    <td><img src="https://raw.githubusercontent.com/kz370/React-native-light-datePicker/main/DatePicker/images/TimerPicker12hrs.PNG" alt="React Native DateTime Picker Modal" height="400px" style="margin-left:10px" /></td>
   </tr>
 </table>
-```
+
