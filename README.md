@@ -86,7 +86,7 @@ step:
 ### DatePicker
 
 ```javascript
-import DatePicker from '@kz.dev370/datetime-picker-react-native';
+import DatePicker from '@khaledz370/datetimepicker-react-native';
 
 export default function App() {
   const [date, setdate] = useState(new Date());
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
 ### TimePicker
 
 ```javascript
-import DatePicker from '@kz.dev370/datetime-picker-react-native';
+import DatePicker from '@khaledz370/datetimepicker-react-native';
 
 export default function App() {
   const [date, setdate] = useState(new Date());
