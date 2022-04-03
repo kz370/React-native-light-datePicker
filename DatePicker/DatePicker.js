@@ -10,9 +10,10 @@ const dayShort = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 export default DatePicker = (props) => {
     try {
-        const [selectedDay, setSelectedDay] = useState(props.date.getDate() - 1)
-        const [selectedMonth, setSelectedMonth] = useState(props.date.getMonth())
-        const [selectedYear, setSelectedYear] = useState(props.date.getFullYear())
+        const prevDate = new Date(props.date)
+        const [selectedDay, setSelectedDay] = useState(prevDate.getDate() - 1)
+        const [selectedMonth, setSelectedMonth] = useState(prevDate.getMonth())
+        const [selectedYear, setSelectedYear] = useState(prevDate.getFullYear())
         const [backGroundColer, setbackGroundColer] = useState(Array.from({ length: 31 }, (_, i) => i == selectedDay ? 'skyblue' : 'white'))
         const [days, setdays] = useState([])
         const [selector, setSelector] = useState("day")
