@@ -10,7 +10,7 @@ const dayShort = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 export default DatePicker = (props) => {
     try {
-        const prevDate = new Date(props.date)
+        const prevDate = isNaN(new Date(props.date)) ? new Date(Date.now()) : new Date(props.date);
         const [selectedDay, setSelectedDay] = useState(prevDate.getDate() - 1)
         const [selectedMonth, setSelectedMonth] = useState(prevDate.getMonth())
         const [selectedYear, setSelectedYear] = useState(prevDate.getFullYear())
@@ -77,7 +77,7 @@ export default DatePicker = (props) => {
         return (
             <Modal
                 animationType="fade"
-                transparent={props.isTransparent?props.isTransparent:false}
+                transparent={props.isTransparent ? props.isTransparent : false}
                 backdropColor={"white"}
             >
                 <ScrollView style={{ flex: 1 }}>
