@@ -21,7 +21,7 @@ export default DatePicker = (props) => {
         const [date, setDate] = useState(new Date())
         const mode = props.mode ? props.mode : 'date'
         const hrs12 = props.hrs12 ? props.hrs12 : false
-        const time = props.date ? props.date : new Date(Date.now())
+        const time = prevDate
         const [mTop, setMTop] = useState(0)
         const [calcMargin, setCalcMargin] = useState(true)
 
