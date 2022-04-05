@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity, Pressable } from "react-native";
 import { AntDesign } from '@expo/vector-icons';
 import { s } from './DatePickerStyle'
@@ -17,8 +17,7 @@ export default function DayPicker(props) {
 
         useEffect(() => {
             const newDay = new Date(props.selectedYear, props.selectedMonth, props.selectedDay)
-            console.log(startDate > newDay)
-            setconfirmBtn(startDate > newDay)
+            setconfirmBtn(startDate > newDay.setDate(newDay.getDate() + 1))
         })
 
         const nextMonth = () => {
@@ -88,7 +87,7 @@ export default function DayPicker(props) {
                         let disabled
                         if (startDate) {
                             const newDay = new Date(props.selectedYear, props.selectedMonth, day)
-                            disabled = startDate > newDay
+                            disabled = startDate > newDay.setDate(newDay.getDate() + 1)
                         }
                         // console.log()
                         return (
@@ -103,7 +102,7 @@ export default function DayPicker(props) {
                         <Text>Cancel</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={[{ marginLeft: 50, marginRight: 20 }]} onPress={confirm} disabled={confirmBtn}>
-                        <Text style={[{ color: confirmBtn? 'grey':"black" }]}>Confirm</Text>
+                        <Text style={[{ color: confirmBtn ? 'grey' : "black" }]}>Confirm</Text>
                     </TouchableOpacity>
                 </View>
             </View>
