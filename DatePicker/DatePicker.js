@@ -22,6 +22,7 @@ export default DatePicker = (props) => {
         const mode = props.mode ? props.mode : 'date'
         const hrs12 = props.hrs12 ? props.hrs12 : false
         const time = prevDate
+        const startDate = props.startDate ? props.startDate : null
         const [mTop, setMTop] = useState(0)
         const [calcMargin, setCalcMargin] = useState(true)
 
@@ -99,7 +100,7 @@ export default DatePicker = (props) => {
                             dayShort={dayShort}
                             onConfirm={() => onConfirm('date')}
                             onCancel={onCancel}
-                            startDate={props.startDate ? props.startDate : null}
+                            startDate={startDate}
                         />}
                         {/* Month selector */}
                         {mode === "date" && selector === 'month' && <MonthPicker setSelector={(e) => { setSelector(e) }} selectMonth={(e) => { setSelectedMonth(e) }} />}

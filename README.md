@@ -24,12 +24,6 @@ yarn:
 
 List of possible values:
 
-startDate:
-
-```bash
-  Defines the minimum date that can be selected
-```
-
 mode:
 
 ```bash
@@ -78,6 +72,12 @@ onConfirm:
 ```bash
    required!
    returns date value when pressed 
+```
+
+startDate:
+
+```bash
+  Defines the minimum date that can be selected
 ```
 
 step:
