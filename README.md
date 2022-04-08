@@ -2,6 +2,10 @@
 
 Made by <a href="https://crafty-app.com"> Crafty-app</a>
 
+# What's new?
+
+Added animations
+
 # Date picker
 
 A light date/time picker for react-native
