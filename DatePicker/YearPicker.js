@@ -46,7 +46,7 @@ export default function YearPicker(props) {
         }
 
         return (
-            <View style={[s.container]} elevation={30}>
+            <View style={[s.container]} elevation={15}>
                 <TouchableOpacity style={[s.row, { alignSelf: 'flex-start', alignItems: 'center' }]} onPress={onSetSelector}>
                     <AntDesign name="left" size={30} color="black" />
                     <Text style={[{ marginLeft: 15 }]}>Go back</Text>
