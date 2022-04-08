@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, Pressable } from "react-native";
+import React, { useState ,useEffect,useRef} from 'react';
+import { View, Text, TouchableOpacity, Pressable,Animated } from "react-native";
 import { AntDesign } from '@expo/vector-icons';
 import { s } from './DatePickerStyle'
 
@@ -15,6 +15,14 @@ const arrayOfChunkedYears = arrayOfYears.chunk(16)
 
 export default function YearPicker(props) {
     try {
+        const zoomYear = useRef(new Animated.Value(0)).current;
+        useEffect(() => {
+            Animated.timing(zoomYear, {
+                toValue: 1,
+                duration: 400,
+                useNativeDriver: false
+            }).start();
+        })
         const [selectedChunk, setSelectedChunk] = useState(3)
         const nextChunk = () => {
             if (selectedChunk < 8) {
@@ -43,7 +51,7 @@ export default function YearPicker(props) {
                     <AntDesign name="left" size={30} color="black" />
                     <Text style={[{ marginLeft: 15 }]}>Go back</Text>
                 </TouchableOpacity>
-                <View style={[s.calenderPicker]}>
+                <Animated.View style={[s.calenderPicker,{transform:[{scale:zoomYear}]}]}>
                     {arrayOfChunkedYears[selectedChunk].map(year => {
                         return (
                             <Pressable key={year} style={[s.year]} onPress={() => { onSelectYear(year) }}>
@@ -51,7 +59,7 @@ export default function YearPicker(props) {
                             </Pressable>
                         )
                     })}
-                </View>
+                </Animated.View>
                 <View style={[s.row]}>
                     <TouchableOpacity style={[{ marginRight: 250 }]} onPress={prevChunk} disabled={!selectedChunk}>
                         <AntDesign name="left" size={30} color={selectedChunk ? "black" : 'white'} />

@@ -7,13 +7,14 @@ export default function TimePicker(props) {
     try {
         const hrs12 = props.hrs12
         const step = props.step
+        const prevAmPm = props.time.getHours() > 12 ? "PM" : 'AM'
         const gethours = hrs12 ? props.time.getHours() % 12 : props.time.getHours()
         const gethourString = gethours < 10 ? `${gethours > 0 ? `0${gethours}` : 12}` : gethours
         const [hrs, setHrs] = useState(gethours)
         const [hrsString, setHrsString] = useState(gethourString)
         const [min, setMin] = useState(props.time.getMinutes())
         const [minString, setMinString] = useState(`${min < 10 ? `0${min}` : min}`)
-        const [amPm, setAmPm] = useState("AM")
+        const [amPm, setAmPm] = useState(prevAmPm)
 
         const cancel = () => {
             props.onCancel()
@@ -85,7 +86,7 @@ export default function TimePicker(props) {
         }
 
         return (
-            <View style={[s.timePicerContainer, {elevation:50}]}>
+            <View style={[s.timePicerContainer, { elevation: 10 }]}>
                 <View style={[s.TimerText]}>
                     <Text style={{ fontSize: 30 }}>
                         Set Time

@@ -1,6 +1,6 @@
 ## Crafty-app
 
-Made by crafty-app.com
+Made by <a href="https://crafty-app.com"> Crafty-app</a>
 
 # Date picker
 
@@ -131,7 +131,9 @@ const styles = StyleSheet.create({
 
 <table>
    <tr>
-   <td><img src="https://raw.githubusercontent.com/kz370/React-native-light-datePicker/main/DatePicker/images/Datepicker.PNG" alt="React Native DateTime Picker Modal" height="300px" style="margin-left:10px" /></td>
+   <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/Datepicker.PNG" alt="React Native DateTime Picker Modal" height="400px" style="margin-left:10px" /></td>
+   <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/monthPicker.PNG" alt="React Native DateTime Picker Modal" height="400px" style="margin-left:10px" /></td>
+   <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/yearPicker.PNG" alt="React Native DateTime Picker Modal" height="400px" style="margin-left:10px" /></td>
   </tr>
 </table>
 
@@ -176,8 +178,8 @@ const styles = StyleSheet.create({
 
 <table>
    <tr>
-   <td><img src="https://raw.githubusercontent.com/kz370/React-native-light-datePicker/main/DatePicker/images/TimerPicker24hrs.PNG" alt="React Native DateTime Picker Modal" height="300px" style="margin-left:10px" /></td>
-   <td><img src="https://raw.githubusercontent.com/kz370/React-native-light-datePicker/main/DatePicker/images/TimerPicker12hrs.PNG" alt="React Native DateTime Picker Modal" height="300px" style="margin-left:10px" /></td>
+   <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/TimerPicker24hrs.PNG" alt="React Native DateTime Picker Modal" height="300px" style="margin-left:10px" /></td>
+   <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/TimerPicker12hrs.PNG" alt="React Native DateTime Picker Modal" height="300px" style="margin-left:10px" /></td>
   </tr>
 </table>
 

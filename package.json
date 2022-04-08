@@ -1,6 +1,6 @@
 {
   "name": "@khaledz370/datetimepicker-react-native",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "a light and fast date/time picker for react native",
   "main": "datepicker/DatePicker.js",
   "scripts": {
@@ -8,12 +8,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kz370/React-native-light-datePicker.git"
+    "url": "git+https://github.com/kz370/datetimepicker-react-native"
   },
   "keywords": [
     "react-native",
     "datepicker",
-    "datetimepicker"
+    "datetimepicker",
+    "react",
+    "react-native",
+    "react-native-datepicker",
+    "datepicker",
+    "calendar",
+    "react-native-calendar",
+    "react-native-calendars",
+    "time-picker",
+    "react-native-time-picker"
   ],
   "author": "kz.dev370",
   "license": "UNLICENSED",

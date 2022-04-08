@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity, Pressable } from "react-native";
+import React, { useEffect, useRef, useState } from 'react';
+import { View, Text, TouchableOpacity, Pressable, Animated } from "react-native";
 import { AntDesign } from '@expo/vector-icons';
 import { s } from './DatePickerStyle'
 
@@ -7,6 +7,14 @@ const monthShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'S
 
 export default function DayPicker(props) {
     try {
+        const zoomDay = useRef(new Animated.Value(0)).current;
+        useEffect(() => {
+            Animated.timing(zoomDay, {
+                toValue: 1,
+                duration: 400,
+                useNativeDriver: false
+            }).start();
+        })
         const [confirmBtn, setconfirmBtn] = useState(false)
         const startDate = props.startDate
 
@@ -48,7 +56,7 @@ export default function DayPicker(props) {
             props.onConfirm()
         }
         return (
-            <View style={[s.container]} elevation={30}>
+            <View style={[s.container]} elevation={15}>
                 <View style={[s.row, { alignItems: 'center' }]}>
                     <TouchableOpacity onPress={prevMonth}>
                         <AntDesign name="left" size={24} color="black" />
@@ -77,7 +85,7 @@ export default function DayPicker(props) {
                     ))}
                 </View>
                 {/* mapping days of the month */}
-                <View style={[s.calenderPicker]}>
+                <Animated.View style={[s.calenderPicker, { transform: [{ scale: zoomDay }] }]}>
                     {props.startingDay.map(e => (
                         <View key={e} style={[s.day]}>
                             <Text style={[s.txtCenter]}></Text>
@@ -96,7 +104,7 @@ export default function DayPicker(props) {
                             </Pressable>
                         )
                     })}
-                </View>
+                </Animated.View>
                 <View style={[s.row, { alignSelf: 'flex-end', paddingLeft: 20, marginTop: 20 }]}>
                     <TouchableOpacity onPress={cancel}>
                         <Text>Cancel</Text>

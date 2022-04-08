@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { View, ScrollView, Modal, Dimensions } from "react-native";
+import { View, Modal, Dimensions, Animated } from "react-native";
 import { s } from './DatePickerStyle'
 import YearPicker from './YearPicker'
 import MonthPicker from './MonthPicker';
@@ -10,6 +10,7 @@ const dayShort = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 export default DatePicker = (props) => {
     try {
+        const zoom = useRef(new Animated.Value(0)).current;
         const prevDate = isNaN(new Date(props.date)) ? new Date(Date.now()) : new Date(props.date);
         const [selectedDay, setSelectedDay] = useState(prevDate.getDate())
         const [selectedMonth, setSelectedMonth] = useState(prevDate.getMonth())
@@ -63,25 +64,43 @@ export default DatePicker = (props) => {
         }, [mTop])
 
         const onCancel = () => {
-            props.onCancel()
+            Animated.timing(zoom, {
+                toValue: 0,
+                duration: 400,
+                useNativeDriver: false
+            }).start();
+            setTimeout(() => { props.onCancel() }, 400)
+        }
+        const onConfirm = (m, time = null) => {
+            Animated.timing(zoom, {
+                toValue: 0,
+                duration: 400,
+                useNativeDriver: false
+            }).start();
+            setTimeout(() => {
+                if (!time) {
+                    time = (new Date(Date.now())).toLocaleTimeString()
+                    props.onConfirm(date)
+                } else {
+                    props.onConfirm(time)
+                }
+            }, 400)
         }
 
-        const onConfirm = (m, time = null) => {
-            if (!time) {
-                time = (new Date(Date.now())).toLocaleTimeString()
-                props.onConfirm(date)
-            } else {
-                props.onConfirm(time)
-            }
-        }
+        useEffect(() => {
+            Animated.timing(zoom, {
+                toValue: 1,
+                duration: 400,
+                useNativeDriver: false
+            }).start();
+        })
 
         return (
             <Modal
-                animationType="fade"
                 transparent={props.isTransparent ? props.isTransparent : false}
                 backdropColor={"white"}
             >
-                <ScrollView style={{ flex: 1 }}>
+                <Animated.ScrollView style={{ flex: 1, transform: [{ scale: zoom }] }}>
                     <View style={{ height: 40 }}></View>
                     <View style={[s.mainContainer, { marginTop: mTop }]}>
                         {/* Day selector */}
@@ -115,7 +134,7 @@ export default DatePicker = (props) => {
                         />}
                     </View>
                     <View style={{ height: 40 }}></View>
-                </ScrollView>
+                </Animated.ScrollView>
             </Modal>
         )
     } catch (error) {
