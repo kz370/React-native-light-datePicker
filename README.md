@@ -2,10 +2,6 @@
 
 Made by <a href="https://crafty-app.com"> Crafty-app</a>
 
-# What's new?
-
-Added animations
-
 # Date picker
 
 A light date/time picker for react-native
@@ -135,9 +131,9 @@ const styles = StyleSheet.create({
 
 <table>
    <tr>
-   <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/Datepicker.PNG" alt="React Native DateTime Picker Modal" height="400px" style="margin-left:10px" /></td>
-   <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/monthPicker.PNG" alt="React Native DateTime Picker Modal" height="400px" style="margin-left:10px" /></td>
-   <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/yearPicker.PNG" alt="React Native DateTime Picker Modal" height="400px" style="margin-left:10px" /></td>
+   <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/Datepicker.PNG" alt="React Native DateTime Picker Modal" height="600px" width="400px" style="margin-left:10px" /></td>
+   <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/monthPicker.PNG" alt="React Native DateTime Picker Modal" height="600px" width="400px"  style="margin-left:10px" /></td>
+   <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/yearPicker.PNG" alt="React Native DateTime Picker Modal" height="600px" width="400px"  style="margin-left:10px" /></td>
   </tr>
 </table>
 
