@@ -71,7 +71,7 @@ onConfirm:
 
 ```bash
    required!
-   returns date value when pressed 
+   returns date value when pressed
 ```
 
 startDate:
@@ -94,7 +94,7 @@ step:
 import DatePicker from "@khaledz370/datetimepicker-react-native";
 
 export default function App() {
-  const [date, setdate] = useState(null); // you can also use new Date() 
+  const [date, setdate] = useState(null); // you can also use new Date()
   const [showModal, setShowModal] = useState(false);
   const confirm = value => {
     setdate(value);
@@ -131,9 +131,9 @@ const styles = StyleSheet.create({
 
 <table>
    <tr>
-   <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/Datepicker.PNG" alt="React Native DateTime Picker Modal" height="400px" width="600px" style="margin-left:10px" /></td>
-   <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/monthPicker.PNG" alt="React Native DateTime Picker Modal" height="400px" width="600px"  style="margin-left:10px" /></td>
-   <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/yearPicker.PNG" alt="React Native DateTime Picker Modal" height="400px" width="600px"  style="margin-left:10px" /></td>
+   <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/Datepicker.PNG" alt="React Native DateTime Picker Modal" height="400px"  style="margin-left:10px" /></td>
+   <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/monthPicker.PNG" alt="React Native DateTime Picker Modal" height="400px"  style="margin-left:10px" /></td>
+   <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/yearPicker.PNG" alt="React Native DateTime Picker Modal" height="400px"   style="margin-left:10px" /></td>
   </tr>
 </table>
 
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
 import DatePicker from "@khaledz370/datetimepicker-react-native";
 
 export default function App() {
-  const [time, setTime] = useState(null); // you can also use new Date() 
+  const [time, setTime] = useState(null); // you can also use new Date()
   const [showModal, setShowModal] = useState(false);
   const confirm = value => {
     setTime(value);
@@ -182,7 +182,6 @@ const styles = StyleSheet.create({
    <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/TimerPicker12hrs.PNG" alt="React Native DateTime Picker Modal" height="300px" style="margin-left:10px" /></td>
   </tr>
 </table>
-
 
 ## upcoming features
 
