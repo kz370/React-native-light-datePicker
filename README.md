@@ -20,6 +20,55 @@ yarn:
   yarn add @khaledz370/datetimepicker-react-native
 ```
 
+# What's new
+
+User can change calender style
+
+txtColor
+```bash
+  Change the color of text
+  Default "black"
+```
+
+bgColor
+```bash
+  Change the back-ground color of datePicker
+  Default "white"
+```
+btnColor
+```bash
+  Change the color of datePicker buttons including "Confirm" and "Cancel" buttons
+  Default "black"
+```
+selectDayColor
+```bash
+  Set the color of the highlighted day in the calender
+  default "skyblue"
+```
+
+
+### DatePicker
+
+```javascript
+          <DatePicker
+            ...
+            txtColor="white"
+            btnColor="lightgreen"
+            bgColor="grey"
+            selectDayColor="green"
+          />
+```
+
+## Example
+
+<table>
+   <tr>
+   <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/customStyleDatePicker.PNG" alt="React Native DateTime Picker Modal" height="400px"  style="margin-left:10px" /></td>
+   <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/customStyleTimePicker.PNG" alt="React Native DateTime Picker Modal" height="300px"  style="margin-left:10px" /></td>
+  </tr>
+</table>
+
+
 ## Usage
 
 List of possible values:
@@ -132,15 +181,7 @@ const styles = StyleSheet.create({
 <table>
    <tr>
    <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/Datepicker.PNG" alt="React Native DateTime Picker Modal" height="400px"  style="margin-left:10px" /></td>
-  </tr>
-</table>
-<table>
-   <tr>
    <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/monthPicker.PNG" alt="React Native DateTime Picker Modal" height="400px"  style="margin-left:10px" /></td>
-  </tr>
-</table>
-<table>
-   <tr>
    <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/yearPicker.PNG" alt="React Native DateTime Picker Modal" height="400px"   style="margin-left:10px" /></td>
   </tr>
 </table>
@@ -191,10 +232,3 @@ const styles = StyleSheet.create({
   </tr>
 </table>
 
-## upcoming features
-
-Add custom style to datepicker:
-
-```bash
-  user will be able to change datepicker style
-```

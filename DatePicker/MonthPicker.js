@@ -8,6 +8,9 @@ const monthLong = ['January', 'February', 'March', 'April', 'May', 'June', 'July
 export default function MonthPicker(props) {
     try {
         const zoomMonth = useRef(new Animated.Value(0)).current;
+        const txtColor = props.txtColor ? props.txtColor : "black"
+        const btnColor = props.btnColor ? props.btnColor : "black"
+        const bgColor = props.bgColor ? props.bgColor : "white"
         useEffect(() => {
             Animated.timing(zoomMonth, {
                 toValue: 1,
@@ -25,16 +28,16 @@ export default function MonthPicker(props) {
             props.setSelector('day')
         }
         return (
-            <View style={[s.container]} elevation={15}>
+            <View style={[s.container,{backgroundColor:bgColor}]} elevation={15}>
                 <TouchableOpacity style={[s.row, { alignSelf: 'flex-start', alignItems: 'center' }]} onPress={onSetSelector}>
-                    <AntDesign name="left" size={30} color="black" />
-                    <Text style={[{ marginLeft: 15 }]}>Go back</Text>
+                    <AntDesign name="left" size={30} color={btnColor} />
+                    <Text style={[{ marginLeft: 15,color:btnColor }]}>Go back</Text>
                 </TouchableOpacity>
                 <Animated.View style={[s.monthPicker, { transform: [{ scale: zoomMonth }] }]}>
                     {monthLong.map(m => {
                         return (
                             <Pressable key={m} style={[s.month]} onPress={() => { onSelectMonth(m) }}>
-                                <Text style={[s.txtCenter]}>{m}</Text>
+                                <Text style={[s.txtCenter,{color:txtColor}]}>{m}</Text>
                             </Pressable>
                         )
                     })}

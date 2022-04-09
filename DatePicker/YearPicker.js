@@ -1,5 +1,5 @@
-import React, { useState ,useEffect,useRef} from 'react';
-import { View, Text, TouchableOpacity, Pressable,Animated } from "react-native";
+import React, { useState, useEffect, useRef } from 'react';
+import { View, Text, TouchableOpacity, Pressable, Animated } from "react-native";
 import { AntDesign } from '@expo/vector-icons';
 import { s } from './DatePickerStyle'
 
@@ -16,6 +16,9 @@ const arrayOfChunkedYears = arrayOfYears.chunk(16)
 export default function YearPicker(props) {
     try {
         const zoomYear = useRef(new Animated.Value(0)).current;
+        const txtColor = props.txtColor ? props.txtColor : "black"
+        const btnColor = props.btnColor ? props.btnColor : "black"
+        const bgColor = props.bgColor ? props.bgColor : "white"
         useEffect(() => {
             Animated.timing(zoomYear, {
                 toValue: 1,
@@ -46,26 +49,26 @@ export default function YearPicker(props) {
         }
 
         return (
-            <View style={[s.container]} elevation={15}>
+            <View style={[s.container, { backgroundColor: bgColor }]} elevation={15}>
                 <TouchableOpacity style={[s.row, { alignSelf: 'flex-start', alignItems: 'center' }]} onPress={onSetSelector}>
-                    <AntDesign name="left" size={30} color="black" />
-                    <Text style={[{ marginLeft: 15 }]}>Go back</Text>
+                    <AntDesign name="left" size={30} color={btnColor} />
+                    <Text style={[{ marginLeft: 15, color: btnColor }]}>Go back</Text>
                 </TouchableOpacity>
-                <Animated.View style={[s.calenderPicker,{transform:[{scale:zoomYear}]}]}>
+                <Animated.View style={[s.calenderPicker, { transform: [{ scale: zoomYear }] }]}>
                     {arrayOfChunkedYears[selectedChunk].map(year => {
                         return (
                             <Pressable key={year} style={[s.year]} onPress={() => { onSelectYear(year) }}>
-                                <Text style={[s.txtCenter]}>{year}</Text>
+                                <Text style={[s.txtCenter, { color: txtColor }]}>{year}</Text>
                             </Pressable>
                         )
                     })}
                 </Animated.View>
                 <View style={[s.row]}>
                     <TouchableOpacity style={[{ marginRight: 250 }]} onPress={prevChunk} disabled={!selectedChunk}>
-                        <AntDesign name="left" size={30} color={selectedChunk ? "black" : 'white'} />
+                        <AntDesign name="left" size={30} color={selectedChunk ? btnColor : bgColor} />
                     </TouchableOpacity>
                     <TouchableOpacity style={[{ alignSelf: 'flex-end' }]} onPress={nextChunk} disabled={!(selectedChunk < 8)}>
-                        <AntDesign name="right" size={30} color={(selectedChunk < 8) ? "black" : 'white'} />
+                        <AntDesign name="right" size={30} color={(selectedChunk < 8) ? btnColor : bgColor} />
                     </TouchableOpacity>
                 </View>
             </View>

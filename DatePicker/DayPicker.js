@@ -8,6 +8,10 @@ const monthShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'S
 export default function DayPicker(props) {
     try {
         const zoomDay = useRef(new Animated.Value(0)).current;
+        const txtColor = props.txtColor ? props.txtColor : "black"
+        const btnColor = props.btnColor ? props.btnColor : "black"
+        const bgColor = props.bgColor ? props.bgColor : "white"
+        const selectDayColor = props.selectDayColor ? props.selectDayColor : "skyblue"
         useEffect(() => {
             Animated.timing(zoomDay, {
                 toValue: 1,
@@ -19,7 +23,7 @@ export default function DayPicker(props) {
         const startDate = props.startDate
 
         const selectDay = (day) => {
-            props.onSetBackGroundColor(props.backGroundColer.map((e, index) => index !== day ? 'white' : 'skyblue'))
+            props.onSetBackGroundColor(props.backGroundColer.map((e, index) => index !== day ? bgColor : selectDayColor))
             props.onSetSelectedDay(day + 1)
         }
 
@@ -56,29 +60,30 @@ export default function DayPicker(props) {
             props.onConfirm()
         }
         return (
-            <View style={[s.container]} elevation={15}>
+            <View style={[s.container, { backgroundColor: bgColor }]} elevation={15}>
                 <View style={[s.row, { alignItems: 'center' }]}>
                     <TouchableOpacity onPress={prevMonth}>
-                        <AntDesign name="left" size={24} color="black" />
+                        <AntDesign name="left" size={24} color={btnColor} />
                     </TouchableOpacity>
                     <TouchableOpacity style={[{ marginLeft: 50 }]} onPress={() => { onSetSelector('month') }}>
-                        <Text>
+                        <Text style={[{ color: txtColor }]}>
                             {monthShort[props.selectedMonth]}
                         </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={[{ marginHorizontal: 50 }]} onPress={() => { onSetSelector('year') }}>
-                        <Text>
+                        <Text style={[{ color: txtColor }]}>
                             {props.selectedYear}
                         </Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={nextMonth}>
-                        <AntDesign name="right" size={24} color="black" />
+                        <AntDesign name="right" size={24} color={btnColor} />
                     </TouchableOpacity>
                 </View>
+                {/* mapping days of the week */}
                 <View style={[s.daysShort]}>
                     {props.dayShort.map(e => (
                         <View key={e} style={[{ flex: 1, textAlign: 'center' }]}>
-                            <Text style={[s.txtCenter]}>
+                            <Text style={[s.txtCenter, { color: txtColor }]}>
                                 {e}
                             </Text>
                         </View>
@@ -88,7 +93,7 @@ export default function DayPicker(props) {
                 <Animated.View style={[s.calenderPicker, { transform: [{ scale: zoomDay }] }]}>
                     {props.startingDay.map(e => (
                         <View key={e} style={[s.day]}>
-                            <Text style={[s.txtCenter]}></Text>
+                            <Text style={[s.txtCenter, { color: txtColor }]}></Text>
                         </View>
                     ))}
                     {props.days.map(day => {
@@ -100,17 +105,17 @@ export default function DayPicker(props) {
                         // console.log()
                         return (
                             <Pressable disabled={disabled} key={day} style={[s.day, { backgroundColor: props.backGroundColer[day - 1] }]} onPress={() => { selectDay(day - 1) }}>
-                                <Text style={[s.txtCenter, { color: disabled ? 'grey' : 'black' }]}>{day}</Text>
+                                <Text style={[s.txtCenter, { opacity: disabled ? .3 : 1, color: txtColor }]}>{day}</Text>
                             </Pressable>
                         )
                     })}
                 </Animated.View>
                 <View style={[s.row, { alignSelf: 'flex-end', paddingLeft: 20, marginTop: 20 }]}>
                     <TouchableOpacity onPress={cancel}>
-                        <Text>Cancel</Text>
+                        <Text style={[{ color: btnColor }]}>Cancel</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={[{ marginLeft: 50, marginRight: 20 }]} onPress={confirm} disabled={confirmBtn}>
-                        <Text style={[{ color: confirmBtn ? 'grey' : "black" }]}>Confirm</Text>
+                        <Text style={[{ opacity: confirmBtn ? .3 : 1, color: btnColor }]}>Confirm</Text>
                     </TouchableOpacity>
                 </View>
             </View>

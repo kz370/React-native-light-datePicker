@@ -10,12 +10,17 @@ const dayShort = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 export default DatePicker = (props) => {
     try {
+        // console.log(props)
+        const txtColor=props.txtColor?props.txtColor:"black"
+        const btnColor=props.btnColor?props.btnColor:"black"
+        const bgColor=props.bgColor?props.bgColor:"white"
+        const selectDayColor = props.selectDayColor ? props.selectDayColor : "skyblue"
         const zoom = useRef(new Animated.Value(0)).current;
         const prevDate = isNaN(new Date(props.date)) ? new Date(Date.now()) : new Date(props.date);
         const [selectedDay, setSelectedDay] = useState(prevDate.getDate())
         const [selectedMonth, setSelectedMonth] = useState(prevDate.getMonth())
         const [selectedYear, setSelectedYear] = useState(prevDate.getFullYear())
-        const [backGroundColer, setbackGroundColer] = useState(Array.from({ length: 31 }, (_, i) => i == selectedDay - 1 ? 'skyblue' : 'white'))
+        const [backGroundColer, setbackGroundColer] = useState(Array.from({ length: 31 }, (_, i) => i == selectedDay - 1 ? selectDayColor : bgColor))
         const [days, setdays] = useState([])
         const [selector, setSelector] = useState("day")
         const [startingDay, setStartingDay] = useState([])
@@ -26,6 +31,7 @@ export default DatePicker = (props) => {
         const startDate = props.startDate ? props.startDate : null
         const [mTop, setMTop] = useState(0)
         const [calcMargin, setCalcMargin] = useState(true)
+        
 
         useEffect(() => {
             const n = (new Date(selectedYear, selectedMonth + 1, 0)).getDate()
@@ -98,11 +104,10 @@ export default DatePicker = (props) => {
         return (
             <Modal
                 transparent={props.isTransparent ? props.isTransparent : false}
-                backdropColor={"white"}
             >
                 <Animated.ScrollView style={{ flex: 1, transform: [{ scale: zoom }] }}>
                     <View style={{ height: 40 }}></View>
-                    <View style={[s.mainContainer, { marginTop: mTop }]}>
+                    <View style={[s.mainContainer, { marginTop: mTop,backgroundColor:bgColor }]}>
                         {/* Day selector */}
                         {mode === "date" && selector === 'day' && <DayPicker
                             setSelector={(e) => { setSelector(e) }}
@@ -120,17 +125,24 @@ export default DatePicker = (props) => {
                             onConfirm={() => onConfirm('date')}
                             onCancel={onCancel}
                             startDate={startDate}
+                            txtColor={txtColor}
+                            btnColor={btnColor}
+                            bgColor={bgColor}
+                            selectDayColor={selectDayColor}
                         />}
                         {/* Month selector */}
-                        {mode === "date" && selector === 'month' && <MonthPicker setSelector={(e) => { setSelector(e) }} selectMonth={(e) => { setSelectedMonth(e) }} />}
+                        {mode === "date" && selector === 'month' && <MonthPicker bgColor={bgColor} btnColor={btnColor} txtColor={txtColor} setSelector={(e) => { setSelector(e) }} selectMonth={(e) => { setSelectedMonth(e) }} />}
                         {/* Year selector */}
-                        {mode === "date" && selector === 'year' && <YearPicker setSelector={(e) => { setSelector(e) }} selectYear={(e) => { setSelectedYear(e) }} />}
+                        {mode === "date" && selector === 'year' && <YearPicker bgColor={bgColor} btnColor={btnColor} txtColor={txtColor} setSelector={(e) => { setSelector(e) }} selectYear={(e) => { setSelectedYear(e) }} />}
                         {mode === "time" && <TimePicker
                             onConfirm={(time) => onConfirm('time', time)}
                             onCancel={onCancel}
                             hrs12={hrs12}
                             time={time}
                             step={props.step ? props.step : 1}
+                            txtColor={txtColor}
+                            btnColor={btnColor}
+                            bgColor={bgColor}
                         />}
                     </View>
                     <View style={{ height: 40 }}></View>

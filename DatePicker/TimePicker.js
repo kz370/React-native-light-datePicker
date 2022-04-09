@@ -5,6 +5,9 @@ import { s } from './DatePickerStyle'
 
 export default function TimePicker(props) {
     try {
+        const txtColor = props.txtColor ? props.txtColor : "black"
+        const btnColor = props.btnColor ? props.btnColor : "black"
+        const bgColor = props.bgColor ? props.bgColor : "white"
         const hrs12 = props.hrs12
         const step = props.step
         const prevAmPm = props.time.getHours() > 12 ? "PM" : 'AM'
@@ -86,57 +89,57 @@ export default function TimePicker(props) {
         }
 
         return (
-            <View style={[s.timePicerContainer, { elevation: 10 }]}>
+            <View style={[s.timePicerContainer, { elevation: 10, backgroundColor: bgColor }]}>
                 <View style={[s.TimerText]}>
-                    <Text style={{ fontSize: 30 }}>
+                    <Text style={{ fontSize: 30, color: txtColor }}>
                         Set Time
                     </Text>
                 </View>
                 <View style={[s.row]}>
                     <View style={[s.timerInput]}>
-                        <Text style={[{ marginBottom: 20 }]}>Hours</Text>
+                        <Text style={[{ marginBottom: 20, color: txtColor }]}>Hours</Text>
                         <TouchableOpacity onPress={addHrs}>
-                            <AntDesign name="up" size={24} color="black" />
+                            <AntDesign name="up" size={24} color={btnColor} />
                         </TouchableOpacity>
-                        <Text>
+                        <Text style={{ color: txtColor }}>
                             {hrsString}
                         </Text>
                         <TouchableOpacity onPress={subHrs}>
-                            <AntDesign name="down" size={24} color="black" />
+                            <AntDesign name="down" size={24} color={btnColor} />
                         </TouchableOpacity>
                     </View>
                     <View style={[s.timerInput]}>
-                        <Text style={[{ marginBottom: 20 }]}>Minuts</Text>
+                        <Text style={[{ marginBottom: 20, color: txtColor }]}>Minuts</Text>
                         <TouchableOpacity onPress={addMin}>
-                            <AntDesign name="up" size={24} color="black" />
+                            <AntDesign name="up" size={24} color={btnColor} />
                         </TouchableOpacity>
-                        <Text>
+                        <Text style={{ color: txtColor }}>
                             {minString}
                         </Text>
                         <TouchableOpacity onPress={subMin}>
-                            <AntDesign name="down" size={24} color="black" />
+                            <AntDesign name="down" size={24} color={btnColor} />
                         </TouchableOpacity>
                     </View>
                     {props.hrs12 &&
                         <View style={[s.timerInput]}>
                             <Text style={[{ marginBottom: 20 }]}></Text>
                             {amPm === 'PM' ? <TouchableOpacity onPress={() => { setAmPm('AM') }}>
-                                <AntDesign name="up" size={24} color="black" />
+                                <AntDesign name="up" size={24} color={btnColor} />
                             </TouchableOpacity> : <View><Text></Text></View>}
-                            <Text>
+                            <Text style={{ color: txtColor }}>
                                 {amPm}
                             </Text>
                             {amPm === 'AM' ? <TouchableOpacity onPress={() => { setAmPm('PM') }}>
-                                <AntDesign name="down" size={24} color="black" />
+                                <AntDesign name="down" size={24} color={btnColor} />
                             </TouchableOpacity> : <View><Text></Text></View>}
                         </View>}
                 </View>
                 <View style={[s.row, { position: 'absolute', bottom: 10, alignSelf: 'flex-end', paddingLeft: 20, marginTop: 20 }]}>
                     <TouchableOpacity onPress={cancel}>
-                        <Text>Cancel</Text>
+                        <Text style={{ color: btnColor }}>Cancel</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={[{ marginLeft: 50, marginRight: 20 }]} onPress={confirm}>
-                        <Text>Confirm</Text>
+                        <Text style={{ color: btnColor }}>Confirm</Text>
                     </TouchableOpacity>
                 </View>
             </View>
