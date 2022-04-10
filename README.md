@@ -22,30 +22,7 @@ yarn:
 
 # What's new
 
-User can change DatePicker style
-
-txtColor
-```bash
-  Change the color of text
-  Default "black"
-```
-
-bgColor
-```bash
-  Change the back-ground color of datePicker
-  Default "white"
-```
-btnColor
-```bash
-  Change the color of datePicker buttons including "Confirm" and "Cancel" buttons
-  Default "black"
-```
-selectDayColor
-```bash
-  Set the color of the highlighted day in the calender
-  default "skyblue"
-```
-
+Added ability to change time using numeric keyboard
 
 ### DatePicker
 
@@ -133,6 +110,28 @@ step:
 
 ```bash
   The interval at which minutes can be selected
+```
+
+txtColor
+```bash
+  Change the color of text
+  Default "black"
+```
+
+bgColor
+```bash
+  Change the back-ground color of datePicker
+  Default "white"
+```
+btnColor
+```bash
+  Change the color of datePicker buttons including "Confirm" and "Cancel" buttons
+  Default "black"
+```
+selectDayColor
+```bash
+  Set the color of the highlighted day in the calender
+  default "skyblue"
 ```
 
 ## Usage/Examples

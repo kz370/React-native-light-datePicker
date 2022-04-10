@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, Pressable } from "react-native";
+import { View, Text, TouchableOpacity, TextInput } from "react-native";
 import { AntDesign } from '@expo/vector-icons';
 import { s } from './DatePickerStyle'
 
@@ -50,7 +50,7 @@ export default function TimePicker(props) {
         }
         const subHrs = () => {
             if (hrs12) {
-                if (hrs === 0) {
+                if (hrs === 1) {
                     setHrs(12)
                     setHrsString("12")
                 } else {
@@ -87,6 +87,44 @@ export default function TimePicker(props) {
                 setMinString(`${min - step < 10 ? `0${min - step}` : min - step}`)
             }
         }
+        const changeHrs = (value) => {
+            if ((+value || +value === 0 || value === "") && value.length <= 2) {
+                if (hrs12) {
+                    if (+value <= 12) {
+                        if (value === "") {
+                            setHrsString(value)
+                        } else if (+value === 0) {
+                            setHrsString(prev => prev === "0" ? prev : value)
+                        } else {
+                            setHrs(+value)
+                            setHrsString(value)
+                        }
+                    }
+                } else {
+                    if (+value <= 23) {
+                        if (value === "") {
+                            setHrsString(value)
+                        } else {
+                            setHrs(+value)
+                            setHrsString(value)
+                        }
+                    }
+                }
+            }
+
+        }
+        const changeMins = (value) => {
+            if ((+value || +value === 0 || value === "") && value.length <= 2 && +value <= 59) {
+                if (value === "") {
+                    setMinString(value)
+                } else if (+value === 0) {
+                    setMinString(value)
+                } else {
+                    setMin(+value)
+                    setMinString(value)
+                }
+            }
+        }
 
         return (
             <View style={[s.timePicerContainer, { elevation: 10, backgroundColor: bgColor }]}>
@@ -101,9 +139,7 @@ export default function TimePicker(props) {
                         <TouchableOpacity onPress={addHrs}>
                             <AntDesign name="up" size={24} color={btnColor} />
                         </TouchableOpacity>
-                        <Text style={{ color: txtColor }}>
-                            {hrsString}
-                        </Text>
+                        <TextInput style={{ textAlign: 'center', color: txtColor }} keyboardType="numeric" value={hrsString} onChangeText={(e) => changeHrs(e)} />
                         <TouchableOpacity onPress={subHrs}>
                             <AntDesign name="down" size={24} color={btnColor} />
                         </TouchableOpacity>
@@ -113,9 +149,7 @@ export default function TimePicker(props) {
                         <TouchableOpacity onPress={addMin}>
                             <AntDesign name="up" size={24} color={btnColor} />
                         </TouchableOpacity>
-                        <Text style={{ color: txtColor }}>
-                            {minString}
-                        </Text>
+                        <TextInput style={{ textAlign: 'center', color: txtColor }} keyboardType="numeric" value={minString} onChangeText={(e) => changeMins(e)} />
                         <TouchableOpacity onPress={subMin}>
                             <AntDesign name="down" size={24} color={btnColor} />
                         </TouchableOpacity>
@@ -138,8 +172,8 @@ export default function TimePicker(props) {
                     <TouchableOpacity onPress={cancel}>
                         <Text style={{ color: btnColor }}>Cancel</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={[{ marginLeft: 50, marginRight: 20 }]} onPress={confirm}>
-                        <Text style={{ color: btnColor }}>Confirm</Text>
+                    <TouchableOpacity style={[{ marginLeft: 50, marginRight: 20 }]} onPress={confirm} disabled={!hrsString.length || !minString.length}>
+                        <Text style={{ color: btnColor, opacity: (!hrsString.length || !minString.length) ? .3 : 1 }}>Confirm</Text>
                     </TouchableOpacity>
                 </View>
             </View>
