@@ -22,7 +22,9 @@ yarn:
 
 # What's new
 
-Added ability to change time using numeric keyboard
+```bash
+  Added ability to change time using numeric keyboard
+```
 
 ### DatePicker
 
@@ -44,7 +46,6 @@ Added ability to change time using numeric keyboard
    <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/customStyleTimePicker.PNG" alt="React Native DateTime Picker Modal" height="300px"  style="margin-left:10px" /></td>
   </tr>
 </table>
-
 
 ## Usage
 
@@ -113,22 +114,28 @@ step:
 ```
 
 txtColor
+
 ```bash
   Change the color of text
   Default "black"
 ```
 
 bgColor
+
 ```bash
   Change the back-ground color of datePicker
   Default "white"
 ```
+
 btnColor
+
 ```bash
   Change the color of datePicker buttons including "Confirm" and "Cancel" buttons
   Default "black"
 ```
+
 selectDayColor
+
 ```bash
   Set the color of the highlighted day in the calender
   default "skyblue"
@@ -234,4 +241,3 @@ const styles = StyleSheet.create({
    <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/TimerPicker12hrs.PNG" alt="React Native DateTime Picker Modal" height="300px" style="margin-left:10px" /></td>
   </tr>
 </table>
-
