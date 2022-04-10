@@ -26,27 +26,6 @@ yarn:
   Added ability to change time using numeric keyboard
 ```
 
-### DatePicker
-
-```javascript
-          <DatePicker
-            ...
-            txtColor="white"
-            btnColor="lightgreen"
-            bgColor="grey"
-            selectDayColor="green"
-          />
-```
-
-## Example
-
-<table>
-   <tr>
-   <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/customStyleDatePicker.PNG" alt="React Native DateTime Picker Modal" height="400px"  style="margin-left:10px" /></td>
-   <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/customStyleTimePicker.PNG" alt="React Native DateTime Picker Modal" height="300px"  style="margin-left:10px" /></td>
-  </tr>
-</table>
-
 ## Usage
 
 List of possible values:
@@ -140,6 +119,7 @@ selectDayColor
   Set the color of the highlighted day in the calender
   default "skyblue"
 ```
+
 
 ## Usage/Examples
 
@@ -239,5 +219,24 @@ const styles = StyleSheet.create({
    <tr>
    <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/TimerPicker24hrs.PNG" alt="React Native DateTime Picker Modal" height="300px" style="margin-left:10px" /></td>
    <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/TimerPicker12hrs.PNG" alt="React Native DateTime Picker Modal" height="300px" style="margin-left:10px" /></td>
+  </tr>
+</table>
+
+### DatePicker style example
+
+```javascript
+          <DatePicker
+            ...
+            txtColor="white"
+            btnColor="lightgreen"
+            bgColor="grey"
+            selectDayColor="green"
+          />
+```
+
+<table>
+   <tr>
+   <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/customStyleDatePicker.PNG" alt="React Native DateTime Picker Modal" height="400px"  style="margin-left:10px" /></td>
+   <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/customStyleTimePicker.PNG" alt="React Native DateTime Picker Modal" height="300px"  style="margin-left:10px" /></td>
   </tr>
 </table>
