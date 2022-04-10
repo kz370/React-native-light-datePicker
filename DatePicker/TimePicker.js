@@ -14,7 +14,7 @@ export default function TimePicker(props) {
         const gethours = hrs12 ? props.time.getHours() % 12 : props.time.getHours()
         const gethourString = hrs12 ? (gethours < 10 ? `${gethours > 0 ? `0${gethours}` : 12}` : gethours) : gethours
         const [hrs, setHrs] = useState(+gethourString)
-        const [hrsString, setHrsString] = useState(`${+gethourString}`)
+        const [hrsString, setHrsString] = useState(`${gethourString < 10 ? `0${gethourString}` : gethourString}`)
         const [min, setMin] = useState(props.time.getMinutes())
         const [minString, setMinString] = useState(`${min < 10 ? `0${min}` : min}`)
         const [amPm, setAmPm] = useState(prevAmPm)
