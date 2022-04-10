@@ -182,6 +182,10 @@ const styles = StyleSheet.create({
    <tr>
    <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/Datepicker.PNG" alt="React Native DateTime Picker Modal" height="400px"  style="margin-left:10px" /></td>
    <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/monthPicker.PNG" alt="React Native DateTime Picker Modal" height="400px"  style="margin-left:10px" /></td>
+  </tr>
+</table>
+<table>
+   <tr>
    <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/yearPicker.PNG" alt="React Native DateTime Picker Modal" height="400px"   style="margin-left:10px" /></td>
   </tr>
 </table>
