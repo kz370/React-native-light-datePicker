@@ -28,7 +28,7 @@ export default function TimePicker(props) {
         }
         const addHrs = () => {
             if (hrs12) {
-                if (hrs === 12) {
+                if (hrs >= 12) {
                     setHrs(1)
                     setHrsString("01")
                 } else {
@@ -47,7 +47,7 @@ export default function TimePicker(props) {
         }
         const subHrs = () => {
             if (hrs12) {
-                if (hrs === 1) {
+                if (hrs <= 1) {
                     setHrs(12)
                     setHrsString("12")
                 } else {
