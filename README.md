@@ -22,7 +22,7 @@ yarn:
 
 # What's new
 
-User can change calender style
+User can change DatePicker style
 
 txtColor
 ```bash
