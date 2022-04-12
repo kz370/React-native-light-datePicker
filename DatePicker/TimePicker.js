@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, TextInput } from "react-native";
+import { View, Text, TouchableOpacity, TextInput, Platform } from "react-native";
 import { AntDesign } from '@expo/vector-icons';
 import { s } from './DatePickerStyle'
 
@@ -12,9 +12,9 @@ export default function TimePicker(props) {
         const step = props.step
         const prevAmPm = props.time.getHours() > 12 ? "PM" : 'AM'
         const gethours = hrs12 ? props.time.getHours() % 12 : props.time.getHours()
-        const gethourString = hrs12 ? (gethours < 10 ? `${gethours > 0 ? `0${gethours}` : 12}` : gethours) : gethours
+        const gethourString = hrs12 ? (gethours < 10 ? `${gethours > 0 ? `0${gethours}` : 12}` : `${gethours}`) : `${gethours}`
         const [hrs, setHrs] = useState(+gethourString)
-        const [hrsString, setHrsString] = useState(`${gethourString < 10 ? `0${gethourString}` : gethourString}`)
+        const [hrsString, setHrsString] = useState(`${gethourString.length < 2 ? `0${gethourString}` : gethourString}`)
         const [min, setMin] = useState(props.time.getMinutes())
         const [minString, setMinString] = useState(`${min < 10 ? `0${min}` : min}`)
         const [amPm, setAmPm] = useState(prevAmPm)
@@ -130,7 +130,7 @@ export default function TimePicker(props) {
                         Set Time
                     </Text>
                 </View>
-                <View style={[s.row]}>
+                <View style={[s.row, s.timerInputContainer]}>
                     <View style={[s.timerInput]}>
                         <Text style={[{ marginBottom: 20, color: txtColor }]}>Hours</Text>
                         <TouchableOpacity onPress={addHrs}>
@@ -154,15 +154,15 @@ export default function TimePicker(props) {
                     {props.hrs12 &&
                         <View style={[s.timerInput]}>
                             <Text style={[{ marginBottom: 20 }]}></Text>
-                            {amPm === 'PM' ? <TouchableOpacity onPress={() => { setAmPm('AM') }}>
-                                <AntDesign name="up" size={24} color={btnColor} />
-                            </TouchableOpacity> : <View><Text></Text></View>}
+                            <TouchableOpacity onPress={() => { setAmPm('AM') }} disabled={amPm !== 'PM'}>
+                                <AntDesign name="up" size={24} color={amPm === 'PM' ? btnColor : bgColor} />
+                            </TouchableOpacity>
                             <Text style={{ color: txtColor }}>
                                 {amPm}
                             </Text>
-                            {amPm === 'AM' ? <TouchableOpacity onPress={() => { setAmPm('PM') }}>
-                                <AntDesign name="down" size={24} color={btnColor} />
-                            </TouchableOpacity> : <View><Text></Text></View>}
+                            <TouchableOpacity onPress={() => { setAmPm('PM') }} disabled={amPm !== 'AM'}>
+                                <AntDesign name="down" size={24} color={amPm === 'AM' ? btnColor : bgColor} />
+                            </TouchableOpacity>
                         </View>}
                 </View>
                 <View style={[s.row, { position: 'absolute', bottom: 10, alignSelf: 'flex-end', paddingLeft: 20, marginTop: 20 }]}>

@@ -240,3 +240,22 @@ const styles = StyleSheet.create({
    <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/customStyleTimePicker.PNG" alt="React Native DateTime Picker Modal" height="300px"  style="margin-left:10px" /></td>
   </tr>
 </table>
+
+
+## important
+
+For web-view
+
+Add this to app.json
+
+```bash
+  "web": {
+      "build": {
+        "babel": {
+          "include": [
+            "@khaledz370/datetimepicker-react-native"
+          ]
+        }
+      }
+    }
+```
