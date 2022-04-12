@@ -102,6 +102,7 @@ export default function DatePicker(props) {
         return (
             <Modal
                 transparent={props.isTransparent ? props.isTransparent : false}
+                onRequestClose={onCancel}
             >
                 <Animated.ScrollView style={{ flex: 1, transform: [{ scale: zoom }] }}>
                     <View style={{ height: 40 }}></View>
