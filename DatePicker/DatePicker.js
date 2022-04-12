@@ -8,12 +8,11 @@ import TimePicker from './TimePicker';
 
 const dayShort = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-export default DatePicker = (props) => {
+export default function DatePicker(props) {
     try {
-        // console.log(props)
-        const txtColor=props.txtColor?props.txtColor:"black"
-        const btnColor=props.btnColor?props.btnColor:"black"
-        const bgColor=props.bgColor?props.bgColor:"white"
+        const txtColor = props.txtColor ? props.txtColor : "black"
+        const btnColor = props.btnColor ? props.btnColor : "black"
+        const bgColor = props.bgColor ? props.bgColor : "white"
         const selectDayColor = props.selectDayColor ? props.selectDayColor : "skyblue"
         const zoom = useRef(new Animated.Value(0)).current;
         const prevDate = isNaN(new Date(props.date)) ? new Date(Date.now()) : new Date(props.date);
@@ -31,7 +30,6 @@ export default DatePicker = (props) => {
         const startDate = props.startDate ? props.startDate : null
         const [mTop, setMTop] = useState(0)
         const [calcMargin, setCalcMargin] = useState(true)
-        
 
         useEffect(() => {
             const n = (new Date(selectedYear, selectedMonth + 1, 0)).getDate()
@@ -107,7 +105,7 @@ export default DatePicker = (props) => {
             >
                 <Animated.ScrollView style={{ flex: 1, transform: [{ scale: zoom }] }}>
                     <View style={{ height: 40 }}></View>
-                    <View style={[s.mainContainer, { marginTop: mTop,backgroundColor:bgColor }]}>
+                    <View style={[s.mainContainer, { marginTop: mTop, backgroundColor: bgColor }]}>
                         {/* Day selector */}
                         {mode === "date" && selector === 'day' && <DayPicker
                             setSelector={(e) => { setSelector(e) }}
@@ -158,3 +156,4 @@ export default DatePicker = (props) => {
         )
     }
 }
+
