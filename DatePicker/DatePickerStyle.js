@@ -3,7 +3,7 @@ import { StyleSheet, Platform } from "react-native";
 const os = Platform.OS
 const marginBottom = os === "web" ? 50 : 0
 
-const timerInput=os==="web"? {marginHorizontal: 50,alignItems: 'center', width: "5%",justifyContent:'center'}:{marginHorizontal: 50,alignItems: 'center'}
+const timerInput = os === "web" ? { marginHorizontal: 50, alignItems: 'center', width: "5%", justifyContent: 'center' } : { marginHorizontal: 50, alignItems: 'center' }
 
 export const s = StyleSheet.create({
     mainContainer: {
@@ -26,7 +26,7 @@ export const s = StyleSheet.create({
     },
     daysShort: {
         flexDirection: 'row',
-        padding: 10,
+        paddingVertical: 10,
         marginTop: 20,
         width: 300
     },
@@ -94,7 +94,7 @@ export const s = StyleSheet.create({
     timerInputContainer: {
         alignItems: "center",
         marginBottom: marginBottom,
-        justifyContent:os==="web"?"center":'flex-start'
+        justifyContent: os === "web" ? "center" : 'flex-start'
     },
     timerInput: timerInput,
     TimerText: {
