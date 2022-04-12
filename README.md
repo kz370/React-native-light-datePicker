@@ -242,13 +242,10 @@ const styles = StyleSheet.create({
 </table>
 
 
-## important
-
-For web-view
-
-Add this to app.json
+## important For react-native-web view
 
 ```bash
+Add this to app.json
   "web": {
       "build": {
         "babel": {
