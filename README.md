@@ -164,6 +164,7 @@ const styles = StyleSheet.create({
 
 ## Screenshots
 
+
 <table>
    <tr>
    <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/Datepicker.PNG" alt="React Native DateTime Picker Modal" height="400px"  style="margin-left:10px" /></td>
@@ -221,6 +222,7 @@ const styles = StyleSheet.create({
    <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/TimerPicker12hrs.PNG" alt="React Native DateTime Picker Modal" height="300px" style="margin-left:10px" /></td>
   </tr>
 </table>
+<br><br>
 
 ### DatePicker style example
 
@@ -241,8 +243,9 @@ const styles = StyleSheet.create({
   </tr>
 </table>
 
+<br><br>
 
-## important For react-native-web view
+### Important For web view
 
 ```bash
 Add this to app.json
