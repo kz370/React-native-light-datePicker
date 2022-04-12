@@ -22,8 +22,10 @@ yarn:
 
 # What's new
 
+endDate:
+
 ```bash
-  Added ability to change time using numeric keyboard
+  Defines the maximum date that can be selected
 ```
 
 ## Usage

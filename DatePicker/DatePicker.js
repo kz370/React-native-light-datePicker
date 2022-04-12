@@ -28,6 +28,7 @@ export default function DatePicker(props) {
         const hrs12 = props.hrs12 ? props.hrs12 : false
         const time = prevDate
         const startDate = props.startDate ? props.startDate : null
+        const endDate = props.endDate ? props.endDate : null
         const [mTop, setMTop] = useState(0)
         const [calcMargin, setCalcMargin] = useState(true)
 
@@ -124,6 +125,7 @@ export default function DatePicker(props) {
                             onConfirm={() => onConfirm('date')}
                             onCancel={onCancel}
                             startDate={startDate}
+                            endDate={endDate}
                             txtColor={txtColor}
                             btnColor={btnColor}
                             bgColor={bgColor}

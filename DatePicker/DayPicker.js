@@ -12,6 +12,9 @@ export default function DayPicker(props) {
         const btnColor = props.btnColor ? props.btnColor : "black"
         const bgColor = props.bgColor ? props.bgColor : "white"
         const selectDayColor = props.selectDayColor ? props.selectDayColor : "skyblue"
+        const [confirmBtn, setconfirmBtn] = useState(false)
+        const startDate = props.startDate
+        const endDate = props.endDate
         useEffect(() => {
             Animated.timing(zoomDay, {
                 toValue: 1,
@@ -19,8 +22,6 @@ export default function DayPicker(props) {
                 useNativeDriver: false
             }).start();
         })
-        const [confirmBtn, setconfirmBtn] = useState(false)
-        const startDate = props.startDate
 
         const selectDay = (day) => {
             props.onSetBackGroundColor(props.backGroundColer.map((e, index) => index !== day ? bgColor : selectDayColor))
@@ -97,9 +98,15 @@ export default function DayPicker(props) {
                         </View>
                     ))}
                     {props.days.map(day => {
-                        let disabled
-                        if (startDate) {
-                            const newDay = new Date(props.selectedYear, props.selectedMonth, day)
+                        let disabled = false
+                        const newDay = new Date(props.selectedYear, props.selectedMonth, day)
+                        if (startDate && endDate) {
+                            disabled = !(newDay.setDate(newDay.getDate() + 1) > startDate && newDay.setDate(newDay.getDate() - 2) < endDate)
+
+                        } else if (endDate) {
+                            disabled = endDate < newDay.setDate(newDay.getDate())
+                        }
+                        else if (startDate) {
                             disabled = startDate > newDay.setDate(newDay.getDate() + 1)
                         }
                         // console.log()
