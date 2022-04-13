@@ -70,7 +70,6 @@ export default function DayPicker(props) {
         const confirm = () => {
             props.onConfirm()
         }
-        console.log(startDate, endDate)
         return (
             <View style={[s.container, { backgroundColor: bgColor }]} elevation={15}>
                 <View style={[s.row, { alignItems: 'center' }]}>
