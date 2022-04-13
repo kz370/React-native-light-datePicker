@@ -29,8 +29,18 @@ export default function DayPicker(props) {
         }
 
         useEffect(() => {
+            let disabled
             const newDay = new Date(props.selectedYear, props.selectedMonth, props.selectedDay)
-            setconfirmBtn(startDate > newDay.setDate(newDay.getDate() + 1))
+            if (startDate && endDate) {
+                disabled = !(newDay.setDate(newDay.getDate() + 1) > startDate && newDay.setDate(newDay.getDate() - 2) < endDate)
+
+            } else if (endDate) {
+                disabled = endDate < newDay.setDate(newDay.getDate())
+            }
+            else if (startDate) {
+                disabled = startDate > newDay.setDate(newDay.getDate() + 1)
+            }
+            setconfirmBtn(disabled)
         })
 
         const nextMonth = () => {
@@ -60,6 +70,7 @@ export default function DayPicker(props) {
         const confirm = () => {
             props.onConfirm()
         }
+        console.log(startDate, endDate)
         return (
             <View style={[s.container, { backgroundColor: bgColor }]} elevation={15}>
                 <View style={[s.row, { alignItems: 'center' }]}>
