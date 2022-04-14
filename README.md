@@ -1,6 +1,8 @@
 ## Crafty-app
 
-Made by <a href="https://crafty-app.com"> Crafty-app</a>
+Made by <a target="_blank" href="https://crafty-app.com"> Crafty-app</a>
+
+Official npm site <a target="_blank" href="https://crafty-app.com/npm/datetimepicker-react-native">DateTimePicker-react-Native official site</a>
 
 # Date picker
 
