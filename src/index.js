@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { View, Modal, Dimensions, Animated } from "react-native";
-import { s } from './src/DatePickerStyle'
-import YearPicker from './src/YearPicker'
-import MonthPicker from './src/MonthPicker';
-import DayPicker from './src/DayPicker';
-import TimePicker from './src/TimePicker';
+import { s } from './DatePickerStyle'
+import YearPicker from './YearPicker'
+import MonthPicker from './MonthPicker';
+import DayPicker from './DayPicker';
+import TimePicker from './TimePicker';
 
 const dayShort = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
