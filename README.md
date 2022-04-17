@@ -22,14 +22,6 @@ yarn:
   yarn add @khaledz370/datetimepicker-react-native
 ```
 
-# What's new
-
-endDate:
-
-```bash
-  Defines the maximum date that can be selected
-```
-
 ## Usage
 
 List of possible values:
@@ -88,6 +80,12 @@ startDate:
 
 ```bash
   Defines the minimum date that can be selected
+```
+endDate:
+
+
+```bash
+  Defines the maximum date that can be selected
 ```
 
 step:
