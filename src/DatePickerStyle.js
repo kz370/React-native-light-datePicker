@@ -21,8 +21,8 @@ export const s = StyleSheet.create({
         paddingHorizontal: 15,
         paddingTop: 20,
         maxWidth: 350,
-        height: 450,
-        maxHeight: 500
+        height: 400,
+        maxHeight: 400
     },
     daysShort: {
         flexDirection: 'row',
