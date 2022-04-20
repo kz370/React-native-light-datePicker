@@ -59,7 +59,7 @@ export const s = StyleSheet.create({
         justifyContent: 'center',
         height: 40,
         maxWidth: 52,
-        flexBasis: "14%",
+        flexBasis: "14.28%",
         borderRadius: 100
     },
     month: {

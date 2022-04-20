@@ -63,8 +63,8 @@ export default function YearPicker(props) {
                         )
                     })}
                 </Animated.View>
-                <View style={[s.row]}>
-                    <TouchableOpacity style={[{ marginRight: 250 }]} onPress={prevChunk} disabled={!selectedChunk}>
+                <View style={[s.row,{paddingBottom:20}]}>
+                    <TouchableOpacity style={[{marginRight: 250 }]} onPress={prevChunk} disabled={!selectedChunk}>
                         <AntDesign name="left" size={30} color={selectedChunk ? btnColor : bgColor} />
                     </TouchableOpacity>
                     <TouchableOpacity style={[{ alignSelf: 'flex-end' }]} onPress={nextChunk} disabled={!(selectedChunk < 8)}>
