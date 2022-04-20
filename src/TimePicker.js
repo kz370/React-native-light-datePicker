@@ -166,10 +166,10 @@ export default function TimePicker(props) {
                         </View>}
                 </View>
                 <View style={[s.row, { position: 'absolute', bottom: 10, alignSelf: 'flex-end', paddingLeft: 20, marginTop: 20 }]}>
-                    <TouchableOpacity onPress={cancel}>
+                    <TouchableOpacity style={{paddingHorizontal:20,paddingVertical:15}} onPress={cancel}>
                         <Text style={{ color: btnColor }}>Cancel</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={[{ marginLeft: 50, marginRight: 20 }]} onPress={confirm} disabled={!hrsString.length || !minString.length}>
+                    <TouchableOpacity style={[{ marginLeft: 10,  paddingHorizontal:20,paddingVertical:15}]} onPress={confirm} disabled={!hrsString.length || !minString.length}>
                         <Text style={{ color: btnColor, opacity: (!hrsString.length || !minString.length) ? .3 : 1 }}>Confirm</Text>
                     </TouchableOpacity>
                 </View>

@@ -19,7 +19,7 @@ export const s = StyleSheet.create({
         backgroundColor: 'white',
         borderRadius: 20,
         paddingHorizontal: 15,
-        paddingVertical: 20,
+        paddingTop: 20,
         maxWidth: 350,
         height: 450,
         maxHeight: 500
@@ -36,7 +36,7 @@ export const s = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap',
         alignContent: 'center',
-        paddingHorizontal: 10
+        paddingHorizontal: 10,
     },
     monthPicker: {
         flex: 1,
@@ -57,10 +57,9 @@ export const s = StyleSheet.create({
     },
     day: {
         justifyContent: 'center',
-        margin: 6,
         height: 40,
-        maxWidth: 40,
-        flexBasis: "10%",
+        maxWidth: 52,
+        flexBasis: "14%",
         borderRadius: 100
     },
     month: {

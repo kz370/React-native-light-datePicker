@@ -119,19 +119,18 @@ export default function DayPicker(props) {
                         else if (startDate) {
                             disabled = startDate > newDay.setDate(newDay.getDate() + 1)
                         }
-                        // console.log()
                         return (
-                            <Pressable disabled={disabled} key={day} style={[s.day, { backgroundColor: props.backGroundColer[day - 1] }]} onPress={() => { selectDay(day - 1) }}>
+                            <Pressable disabled={disabled} key={day} style={[s.day, { backgroundColor: props.backGroundColer[day - 1] }]} onPressIn={() => { selectDay(day - 1) }}>
                                 <Text style={[s.txtCenter, { opacity: disabled ? .3 : 1, color: txtColor }]}>{day}</Text>
                             </Pressable>
                         )
                     })}
                 </Animated.View>
-                <View style={[s.row, { alignSelf: 'flex-end', paddingLeft: 20, marginTop: 20 }]}>
-                    <TouchableOpacity onPress={cancel}>
+                <View style={[s.row, { alignSelf: 'flex-end' }]}>
+                    <TouchableOpacity style={{ padding: 20 }} onPress={cancel} >
                         <Text style={[{ color: btnColor }]}>Cancel</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={[{ marginLeft: 50, marginRight: 20 }]} onPress={confirm} disabled={confirmBtn}>
+                    <TouchableOpacity style={[{ padding: 20, marginLeft: 10 }]} onPress={confirm} disabled={confirmBtn}>
                         <Text style={[{ opacity: confirmBtn ? .3 : 1, color: btnColor }]}>Confirm</Text>
                     </TouchableOpacity>
                 </View>
