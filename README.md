@@ -22,6 +22,12 @@ yarn:
   yarn add @khaledz370/datetimepicker-react-native
 ```
 
+## what's new
+
+```bash
+  Added typescript validation
+```
+
 ## Usage
 
 List of possible values:

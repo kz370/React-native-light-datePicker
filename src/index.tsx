@@ -1,21 +1,78 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { View, Modal, Dimensions, Animated } from "react-native";
-import { s } from './DatePickerStyle'
-import YearPicker from './YearPicker'
-import MonthPicker from './MonthPicker';
-import DayPicker from './DayPicker';
-import TimePicker from './TimePicker';
+import { s } from '@khaledz370/datetimepicker-react-native/src/DatePickerStyle'
+import YearPicker from '@khaledz370/datetimepicker-react-native/src/YearPicker'
+import MonthPicker from '@khaledz370/datetimepicker-react-native/src/MonthPicker';
+import DayPicker from '@khaledz370/datetimepicker-react-native/src/DayPicker';
+import TimePicker from '@khaledz370/datetimepicker-react-native/src/TimePicker';
 
 const dayShort = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-export default function DatePicker(props) {
+interface RequiredProps {
+    /** required! 
+     * returns date value when pressed */
+    onConfirm: (value: Date) => void
+    /** required!
+     *  triggerd when on cancel is pressed. */
+    onCancel: () => void,
+}
+
+interface OptionalProps {
+    /** Change the color of text */
+    txtColor?: string,
+    /** Change the color of datePicker buttons including "Confirm" and "Cancel" buttons */
+    btnColor?: string;
+    /** Change the back-ground color of datePicker */
+    bgColor?: string;
+    /** Set the color of the highlighted day in the calender */
+    selectDayColor?: string;
+    /** Defines the date or time value used in the component. */
+    date?: Date;
+    /**  Defines the type of the picker List of possible values "date" default "time" */
+    mode?: 'date' | 'time';
+    /**  Allows changing of the time picker to a 12 hour format */
+    hrs12?: boolean;
+    /** The interval at which minutes can be selected */
+    step?: number;
+    /**   Defines the minimum date that can be selected */
+    startDate?: Date;
+    /**  Defines the maximum date that can be selected */
+    endDate?: Date;
+    /** Hide/show what is behind the date picker while datePicker is opened */
+    isTransparent?: boolean;
+}
+
+const defaultProps: OptionalProps = {
+    txtColor: "black",
+    btnColor: "black",
+    bgColor: "white",
+    selectDayColor: "skyblue",
+    date: (new Date(Date.now())),
+    mode: 'date',
+    hrs12: true,
+    step: 1,
+    startDate: null,
+    endDate: null,
+    isTransparent: false,
+}
+
+interface AllProps extends OptionalProps, RequiredProps { }
+
+
+function DatePicker(props: AllProps) {
     try {
-        const txtColor = props.txtColor ? props.txtColor : "black"
-        const btnColor = props.btnColor ? props.btnColor : "black"
-        const bgColor = props.bgColor ? props.bgColor : "white"
-        const selectDayColor = props.selectDayColor ? props.selectDayColor : "skyblue"
+        const prevDate = props.date instanceof Date ? new Date(props.date) : new Date(Date.now())
+        const txtColor = props.txtColor
+        const btnColor = props.btnColor
+        const bgColor = props.bgColor
+        const selectDayColor = props.selectDayColor
+        const mode = props.mode
+        const hrs12 = props.hrs12
+        const time = prevDate
+        const startDate = props.startDate
+        const endDate = props.endDate
+        const isTransparent = props.isTransparent
         const zoom = useRef(new Animated.Value(0)).current;
-        const prevDate = isNaN(new Date(props.date)) ? new Date(Date.now()) : new Date(props.date);
         const [selectedDay, setSelectedDay] = useState(prevDate.getDate())
         const [selectedMonth, setSelectedMonth] = useState(prevDate.getMonth())
         const [selectedYear, setSelectedYear] = useState(prevDate.getFullYear())
@@ -24,11 +81,6 @@ export default function DatePicker(props) {
         const [selector, setSelector] = useState("day")
         const [startingDay, setStartingDay] = useState([])
         const [date, setDate] = useState(new Date())
-        const mode = props.mode ? props.mode : 'date'
-        const hrs12 = props.hrs12 ? props.hrs12 : false
-        const time = prevDate
-        const startDate = props.startDate ? props.startDate : null
-        const endDate = props.endDate ? props.endDate : null
         const [mTop, setMTop] = useState(0)
         const [calcMargin, setCalcMargin] = useState(true)
 
@@ -74,7 +126,7 @@ export default function DatePicker(props) {
                 duration: 400,
                 useNativeDriver: false
             }).start();
-            setTimeout(() => { props.onCancel() }, 400)
+            setTimeout(() => { props.onCancel(); }, 400)
         }
         const onConfirm = (m, time = null) => {
             Animated.timing(zoom, {
@@ -102,7 +154,7 @@ export default function DatePicker(props) {
 
         return (
             <Modal
-                transparent={props.isTransparent ? props.isTransparent : false}
+                transparent={isTransparent}
                 onRequestClose={onCancel}
             >
                 <Animated.ScrollView style={{ flex: 1, transform: [{ scale: zoom }] }}>
@@ -160,3 +212,6 @@ export default function DatePicker(props) {
     }
 }
 
+DatePicker.defaultProps = defaultProps;
+
+export default DatePicker;
