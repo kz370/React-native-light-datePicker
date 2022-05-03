@@ -87,8 +87,8 @@ startDate:
 ```bash
   Defines the minimum date that can be selected
 ```
-endDate:
 
+endDate:
 
 ```bash
   Defines the maximum date that can be selected
@@ -127,7 +127,6 @@ selectDayColor
   Set the color of the highlighted day in the calender
   default "skyblue"
 ```
-
 
 ## Usage/Examples
 
@@ -172,18 +171,9 @@ const styles = StyleSheet.create({
 
 ## Screenshots
 
-
-<table>
-   <tr>
-   <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/Datepicker.PNG" alt="React Native DateTime Picker Modal" height="400px"  style="margin-left:10px" /></td>
-   <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/monthPicker.PNG" alt="React Native DateTime Picker Modal" height="400px"  style="margin-left:10px" /></td>
-  </tr>
-</table>
-<table>
-   <tr>
-   <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/yearPicker.PNG" alt="React Native DateTime Picker Modal" height="400px"   style="margin-left:10px" /></td>
-  </tr>
-</table>
+![Date picker](https://raw.githubusercontent.com/kz370/myImages/main/Datepicker.PNG)
+![Month picker](https://raw.githubusercontent.com/kz370/myImages/main/monthPicker.PNG)
+![Year picker](https://raw.githubusercontent.com/kz370/myImages/main/yearPicker.PNG)
 
 ### TimePicker
 
@@ -224,13 +214,8 @@ const styles = StyleSheet.create({
 });
 ```
 
-<table>
-   <tr>
-   <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/TimerPicker24hrs.PNG" alt="React Native DateTime Picker Modal" height="300px" style="margin-left:10px" /></td>
-   <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/TimerPicker12hrs.PNG" alt="React Native DateTime Picker Modal" height="300px" style="margin-left:10px" /></td>
-  </tr>
-</table>
-<br><br>
+![Timer Picker 24hrs](https://raw.githubusercontent.com/kz370/myImages/main/TimerPicker24hrs.PNG)
+![Timer Picker 12hrs](https://raw.githubusercontent.com/kz370/myImages/main/TimerPicker12hrs.PNG)
 
 ### DatePicker style example
 
@@ -244,12 +229,8 @@ const styles = StyleSheet.create({
           />
 ```
 
-<table>
-   <tr>
-   <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/customStyleDatePicker.PNG" alt="React Native DateTime Picker Modal" height="400px"  style="margin-left:10px" /></td>
-   <td><img src="https://raw.githubusercontent.com/kz370/myImages/main/customStyleTimePicker.PNG" alt="React Native DateTime Picker Modal" height="300px"  style="margin-left:10px" /></td>
-  </tr>
-</table>
+![Timer Picker 12hrs](https://raw.githubusercontent.com/kz370/myImages/main/customStyleDatePicker.PNG)
+![Timer Picker 12hrs](https://raw.githubusercontent.com/kz370/myImages/main/customStyleTimePicker.PNG)
 
 <br><br>
 
