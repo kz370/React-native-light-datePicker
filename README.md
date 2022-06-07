@@ -25,7 +25,7 @@ yarn:
 ## what's new
 
 ```bash
-  Added typescript validation
+  Pressing outside the date/time picker area will dismiss it.
 ```
 
 ## Usage

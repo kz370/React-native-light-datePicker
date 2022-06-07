@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Modal, Dimensions, Animated } from "react-native";
+import { View, Modal, Dimensions, Animated, Pressable } from "react-native";
 import { s } from '@khaledz370/datetimepicker-react-native/src/DatePickerStyle'
 import YearPicker from '@khaledz370/datetimepicker-react-native/src/YearPicker'
 import MonthPicker from '@khaledz370/datetimepicker-react-native/src/MonthPicker';
@@ -157,49 +157,51 @@ function DatePicker(props: AllProps) {
                 transparent={isTransparent}
                 onRequestClose={onCancel}
             >
-                <Animated.ScrollView style={{ flex: 1, transform: [{ scale: zoom }] }}>
-                    <View style={{ height: 40 }}></View>
-                    <View style={[s.mainContainer, { marginTop: mTop, backgroundColor: bgColor }]}>
-                        {/* Day selector */}
-                        {mode === "date" && selector === 'day' && <DayPicker
-                            setSelector={(e) => { setSelector(e) }}
-                            selectedDay={selectedDay}
-                            selectedMonth={selectedMonth}
-                            selectedYear={selectedYear}
-                            startingDay={startingDay}
-                            days={days}
-                            backGroundColer={backGroundColer}
-                            onSetBackGroundColor={(e) => { setbackGroundColer(e) }}
-                            onSetSelectedDay={(e) => { setSelectedDay(e) }}
-                            onSetSelectedMonth={(e) => { setSelectedMonth(e) }}
-                            onSetSelectedYear={(e) => { setSelectedYear(e) }}
-                            dayShort={dayShort}
-                            onConfirm={() => onConfirm('date')}
-                            onCancel={onCancel}
-                            startDate={startDate}
-                            endDate={endDate}
-                            txtColor={txtColor}
-                            btnColor={btnColor}
-                            bgColor={bgColor}
-                            selectDayColor={selectDayColor}
-                        />}
-                        {/* Month selector */}
-                        {mode === "date" && selector === 'month' && <MonthPicker bgColor={bgColor} btnColor={btnColor} txtColor={txtColor} setSelector={(e) => { setSelector(e) }} selectMonth={(e) => { setSelectedMonth(e) }} />}
-                        {/* Year selector */}
-                        {mode === "date" && selector === 'year' && <YearPicker bgColor={bgColor} btnColor={btnColor} txtColor={txtColor} setSelector={(e) => { setSelector(e) }} selectYear={(e) => { setSelectedYear(e) }} />}
-                        {mode === "time" && <TimePicker
-                            onConfirm={(time) => onConfirm('time', time)}
-                            onCancel={onCancel}
-                            hrs12={hrs12}
-                            time={time}
-                            step={props.step ? props.step : 1}
-                            txtColor={txtColor}
-                            btnColor={btnColor}
-                            bgColor={bgColor}
-                        />}
-                    </View>
-                    <View style={{ height: 40 }}></View>
-                </Animated.ScrollView>
+                <Pressable onPress={onCancel} style={{ flex: 1 }}>
+                    <Animated.ScrollView style={{ flex: 1, transform: [{ scale: zoom }] }}>
+                        <View style={{ height: 40 }}></View>
+                        <View style={[s.mainContainer, { marginTop: mTop, backgroundColor: bgColor }]}>
+                            {/* Day selector */}
+                            {mode === "date" && selector === 'day' && <DayPicker
+                                setSelector={(e) => { setSelector(e) }}
+                                selectedDay={selectedDay}
+                                selectedMonth={selectedMonth}
+                                selectedYear={selectedYear}
+                                startingDay={startingDay}
+                                days={days}
+                                backGroundColer={backGroundColer}
+                                onSetBackGroundColor={(e) => { setbackGroundColer(e) }}
+                                onSetSelectedDay={(e) => { setSelectedDay(e) }}
+                                onSetSelectedMonth={(e) => { setSelectedMonth(e) }}
+                                onSetSelectedYear={(e) => { setSelectedYear(e) }}
+                                dayShort={dayShort}
+                                onConfirm={() => onConfirm('date')}
+                                onCancel={onCancel}
+                                startDate={startDate}
+                                endDate={endDate}
+                                txtColor={txtColor}
+                                btnColor={btnColor}
+                                bgColor={bgColor}
+                                selectDayColor={selectDayColor}
+                            />}
+                            {/* Month selector */}
+                            {mode === "date" && selector === 'month' && <MonthPicker bgColor={bgColor} btnColor={btnColor} txtColor={txtColor} setSelector={(e) => { setSelector(e) }} selectMonth={(e) => { setSelectedMonth(e) }} />}
+                            {/* Year selector */}
+                            {mode === "date" && selector === 'year' && <YearPicker bgColor={bgColor} btnColor={btnColor} txtColor={txtColor} setSelector={(e) => { setSelector(e) }} selectYear={(e) => { setSelectedYear(e) }} />}
+                            {mode === "time" && <TimePicker
+                                onConfirm={(time) => onConfirm('time', time)}
+                                onCancel={onCancel}
+                                hrs12={hrs12}
+                                time={time}
+                                step={props.step ? props.step : 1}
+                                txtColor={txtColor}
+                                btnColor={btnColor}
+                                bgColor={bgColor}
+                            />}
+                        </View>
+                        <View style={{ height: 40 }}></View>
+                    </Animated.ScrollView>
+                </Pressable>
             </Modal>
         )
     } catch (error) {
