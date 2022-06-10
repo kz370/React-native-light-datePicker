@@ -160,7 +160,7 @@ function DatePicker(props: AllProps) {
                 <Pressable onPress={onCancel} style={{ flex: 1 }}>
                     <Animated.ScrollView style={{ flex: 1, transform: [{ scale: zoom }] }}>
                         <View style={{ height: 40 }}></View>
-                        <View style={[s.mainContainer, { marginTop: mTop, backgroundColor: bgColor }]}>
+                        <Pressable style={[s.mainContainer, { marginTop: mTop, backgroundColor: bgColor }]}>
                             {/* Day selector */}
                             {mode === "date" && selector === 'day' && <DayPicker
                                 setSelector={(e) => { setSelector(e) }}
@@ -198,7 +198,7 @@ function DatePicker(props: AllProps) {
                                 btnColor={btnColor}
                                 bgColor={bgColor}
                             />}
-                        </View>
+                        </Pressable>
                         <View style={{ height: 40 }}></View>
                     </Animated.ScrollView>
                 </Pressable>
